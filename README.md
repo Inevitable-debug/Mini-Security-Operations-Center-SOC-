@@ -6,4 +6,8 @@
 
 ## Deployment Instructions
 
-## Lessons Learnt
+## Lessons Learned
+
+## Limitations
+
+## Future Improvements
