@@ -1,1 +1,9 @@
-# Mini-Security-Operations-Center-SOC-
+# Project Summary
+
+## Architecture Diagram
+
+## Technologies Required
+
+## Deployment Instructions
+
+## Lessons Learnt
