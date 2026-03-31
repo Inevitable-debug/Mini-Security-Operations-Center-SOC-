@@ -10,10 +10,15 @@ Elastic Security is built into Kibana and can create detection rules. In this la
 ## Technological Requirements
 ### Hardware / VM requirements
 - VirtualBox VM
+  
    ○ Ubuntu/Debian Virtual Disk Image
+  
       ▪ 4 GB of ram and 50 GB of HDD space
+  
    ○ Windows 8/10/11 Virtual Disk Image
+  
       ▪ 8 GB of ram and 80 GB of HDD space
+  
   ### Software Requirements
   - Sysmon and Winlogbeat (Windows VM)
   - Kibana and Elasticsearch (Ubuntu VM)
