@@ -41,6 +41,7 @@ Elastic Security is built into Kibana and can create detection rules. In this la
 4. Navigate to /etc/elasticsearch to set some parameters.
 4a. Set `network-host: 0.0.0.0` to `network-host: your-ubuntu-vm-ipv4-address`
 <img width="412.5" height="288" alt="cfd8463f803a2a6f3888a11ee50e587b" src="https://github.com/user-attachments/assets/82416de7-5b53-4f65-8b0d-209733971d2c" />
+
 4b. Set `discovery.seed_hosts:["0.0.0.0"]` to your Ubuntu VM ip as well.
 4c. Enable `xpack.security.enabled` to `true` and set `xpack.security.enrollment.enabled` to true
 
