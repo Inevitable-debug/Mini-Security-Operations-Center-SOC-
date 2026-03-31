@@ -23,15 +23,19 @@ Elastic Security is built into Kibana and can create detection rules. In this la
 ###Elasticsearch installation
 
 1. Install the Elastic Public key. This ensures that we can verify the digital signature of Elastic packages using the public key.
+   
 `wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg`
 
-2. Download the apt-transport-https. This allows apt to communicate over HTTPs, not just HTTP. This is important, as Elasticsearch is hosted over HTTP, not HTTPs.
+3. Download the apt-transport-https. This allows apt to communicate over HTTPs, not just HTTP. This is important, as Elasticsearch is hosted over HTTP, not HTTPs.
+
 `sudo apt-get install apt-transport-https`
 
 2a. Selects the key we will use to verify the Debian package and where the repository can be found (link provided)
+
 `echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/9.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-9.x.list`
 
 3. Install the Elastic Package itself. Enter this command to both update the existing packages Ubuntu can access, and to install the Debian package.
+
 `sudo apt-get update && sudo apt-get install elasticsearch`
 
 ## Lessons Learned
