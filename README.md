@@ -1,7 +1,7 @@
 # Project Summary
-A fully virtualised Security Operations Center (SOC) intended to simulate a real world enterprise Cybersecurity environment where Security Professionals can follow SOC Metholodigies, such as performing log aggregation, risk scoring, threat analysis and triage. In this project, a Windows and Ubuntu VM will be used. Elasticsearch and Kibana are installed on the Ubuntu VM. Sysmon and Winlogbeat are installed on the Windows VM.
+A fully virtualised Security Operations Center (SOC) intended to simulate a real world enterprise Cybersecurity environment where Security Professionals can follow SOC Methodologies, such as performing log aggregation, risk scoring, threat analysis and triage. In this project, a Windows and Ubuntu VM will be used. Elasticsearch and Kibana are installed on the Ubuntu VM. Sysmon and Winlogbeat are installed on the Windows VM.
 
-Elasticsearch is a tool that can receive logging data and convert it into a datastore, as well as a vector database. Kibana is a data analytics and visualisation software that can represent this data from Elasticsearch. This data can be queried using the Kibana Query Language to parse out crucial information for threat hunting and can be analysed by Security Professionals. Sysmon expands regular log collection capabilities to include process creation, file changes, network connections and more. Winlogbeat feeds this log collection data enhanced by Sysmon into the Ubuntu VM, which is handled by Elasticsearch and is represented in Kibana.
+Elasticsearch is a tool that can receive logging data and convert it into a database. Kibana is a data analytics and visualisation software that can represent this data from Elasticsearch. This data can be queried using the Kibana Query Language (KQL) to parse out crucial information for threat hunting and can be analysed by Security Professionals. Sysmon expands regular log collection capabilities to include process creation, file changes, network connections and more. Winlogbeat feeds this log collection data enhanced by Sysmon into the Ubuntu VM, which is handled by Elasticsearch and is represented in Kibana.
 
 Elastic Security is built into Kibana and can create detection rules. In this lab, detection rules have been configured to detect any suspicious system behaviour, such as data exfiltration, process injections and registry tampering.
 
@@ -37,6 +37,24 @@ Elastic Security is built into Kibana and can create detection rules. In this la
 3. Install the Elastic Package itself. Enter this command to both update the existing packages Ubuntu can access, and to install the Debian package.
 
 `sudo apt-get update && sudo apt-get install elasticsearch`
+
+4. Navigate to /etc/elasticsearch to set some parameters.
+4a. Set `network-host: 0.0.0.0` to `network-host: your-ubuntu-vm-ipv4-address`
+<img width="825" height="576" alt="cfd8463f803a2a6f3888a11ee50e587b" src="https://github.com/user-attachments/assets/82416de7-5b53-4f65-8b0d-209733971d2c" />
+4b. Set `discovery.seed_hosts:["0.0.0.0"]` to your Ubuntu VM ip as well.
+4c. Enable `xpack.security.enabled` to `true` and set `xpack.security.enrollment.enabled` to true
+
+6. Start the Elasticsearch service
+5a. Check whether the Elasticsearch status is inactive / disabled. It should be inactive, and we shall enable it.
+`systemctl status elasticsearch`
+5b. Enable Elasticsearch. Give it 1-2 minutes to start properly.
+`systemctl start elasticsearch`
+5c. Test Elasticsearch by navigating to `https://your-vm-ip:9200`
+<img width="1646" height="945" alt="2ef605d9a3e6bce4afe56dcc21918b8d" src="https://github.com/user-attachments/assets/5efbad53-21a2-443c-8fa9-676705cf31b5" />
+
+Elasticsearch should now be fully installed!
+
+Note: Just remember, Elasticsearch is HTTPs; Kibana is HTTP.
 
 ## Lessons Learned
 
