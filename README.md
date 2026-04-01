@@ -1,13 +1,28 @@
-# Project Summary
+# 🛡️ Mini Security Operations Center Project 🛡️
+
+##Table of Contents
+1. [Project Summary](#summary)
+2. [Architecture Diagram](#architecture)
+3. [Requirements](#requirements)
+4. [Deployment Instructions](#deployment-instructions)
+5. [Lessons learned](#lessons-learned)
+6. [Limitations](#limitations)
+7. [Future Improvements](#future-improvements)
+
+---
+
+## Project Summary
 A fully virtualised Security Operations Center (SOC) intended to simulate a real world enterprise Cybersecurity environment where Security Professionals can follow SOC Methodologies, such as performing log aggregation, risk scoring, threat analysis and triage. In this project, a Windows and Ubuntu VM will be used. Elasticsearch and Kibana are installed on the Ubuntu VM. Sysmon and Winlogbeat are installed on the Windows VM.
 
 Elasticsearch is a tool that can receive logging data and convert it into a database. Kibana is a data analytics and visualisation software that can represent this data from Elasticsearch. This data can be queried using the Kibana Query Language (KQL) to parse out crucial information for threat hunting and can be analysed by Security Professionals. Sysmon expands regular log collection capabilities to include process creation, file changes, network connections and more. Winlogbeat feeds this log collection data enhanced by Sysmon into the Ubuntu VM, which is handled by Elasticsearch and is represented in Kibana.
 
 Elastic Security is built into Kibana and can create detection rules. In this lab, detection rules have been configured to detect any suspicious system behaviour, such as data exfiltration, process injections and registry tampering.
 
+---
+
 ## Architecture Diagram
 
-## Technological Requirements
+## Requirements
 ### Hardware / VM requirements
 - VirtualBox VM
   
@@ -25,7 +40,7 @@ Elastic Security is built into Kibana and can create detection rules. In this la
 
 ## Deployment Instructions
 
-### Elasticsearch installation
+### Elasticsearch Installation
 
 1. Install the Elastic Public key. This ensures that we can verify the digital signature of Elastic packages using the public key.
    
@@ -65,6 +80,8 @@ Elastic Security is built into Kibana and can create detection rules. In this la
 Elasticsearch should now be fully installed!
 
 Note: Just remember, Elasticsearch is HTTPs; Kibana is HTTP.
+
+### Kibana Installation
 
 ## Lessons Learned
 
