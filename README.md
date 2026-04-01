@@ -75,7 +75,9 @@ sudo apt-get update && sudo apt-get install elasticsearch
 
 4c. Enable `xpack.security.enabled` to `true` and set `xpack.security.enrollment.enabled` to true
 
+
 5. Start the Elasticsearch service
+
 
 5a. Check whether the Elasticsearch status is inactive / disabled. It should be inactive, and we shall enable it.
 `systemctl status elasticsearch`
