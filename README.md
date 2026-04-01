@@ -115,6 +115,9 @@ To stop Kibana, simply replace 'start' with 'stop'.
   
 9. Upon arriving at the "Welcome to Elastic" page, configure username as elastic and paste in the password that was generated when setting up Elasticsearch. Login
 
+## Detection Rules Configuration
+1. 
+
 ## Deployment Instructions on Windows
 ### Sysmon Installation
 1. Download [Sysmon](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon)
