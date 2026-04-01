@@ -54,11 +54,11 @@ wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearm
 sudo apt-get install apt-transport-https
 ```
 
-2a. Selects the key we will use to verify the Debian package and where the repository can be found (link provided)
-
-```bash
-echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/9.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-9.x.list
-```
+  2a. Selects the key we will use to verify the Debian package and where the repository can be found (link provided)
+  
+  ```bash
+  echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/9.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-9.x.list
+  ```
 
 3. Install the Elastic Package itself. Enter this command to both update the existing packages Ubuntu can access, and to install the Debian package.
 
@@ -68,29 +68,27 @@ sudo apt-get update && sudo apt-get install elasticsearch
 
 4. Navigate to /etc/elasticsearch to set some parameters.
 
-4a. Set `network-host: 0.0.0.0` to `network-host: your-ubuntu-vm-ipv4-address`
-<img width="412.5" height="288" alt="cfd8463f803a2a6f3888a11ee50e587b" src="https://github.com/user-attachments/assets/82416de7-5b53-4f65-8b0d-209733971d2c" />
-
-4b. Set `discovery.seed_hosts:["0.0.0.0"]` to your Ubuntu VM ip as well.
-
-4c. Enable `xpack.security.enabled` to `true` and set `xpack.security.enrollment.enabled` to true
-
+  4a. Set `network-host: 0.0.0.0` to `network-host: your-ubuntu-vm-ipv4-address`
+  <img width="412.5" height="288" alt="cfd8463f803a2a6f3888a11ee50e587b" src="https://github.com/user-attachments/assets/82416de7-5b53-4f65-8b0d-209733971d2c" />
+  
+  4b. Set `discovery.seed_hosts:["0.0.0.0"]` to your Ubuntu VM ip as well.
+  
+  4c. Enable `xpack.security.enabled` to `true` and set `xpack.security.enrollment.enabled` to true
 
 5. Start the Elasticsearch service
 
+  5a. Check whether the Elasticsearch status is inactive / disabled. It should be inactive, and we shall enable it.
+  `systemctl status elasticsearch`
+  
+  5b. Enable Elasticsearch. Give it 1-2 minutes to start properly.
+  `systemctl start elasticsearch`
 
-5a. Check whether the Elasticsearch status is inactive / disabled. It should be inactive, and we shall enable it.
-`systemctl status elasticsearch`
+  5c. Test Elasticsearch by navigating to `https://your-vm-ip:9200`
+  <img width="823" height="472.5" alt="2ef605d9a3e6bce4afe56dcc21918b8d" src="https://github.com/user-attachments/assets/5efbad53-21a2-443c-8fa9-676705cf31b5" />
+  
+  Elasticsearch should now be fully installed!
 
-5b. Enable Elasticsearch. Give it 1-2 minutes to start properly.
-`systemctl start elasticsearch`
-
-5c. Test Elasticsearch by navigating to `https://your-vm-ip:9200`
-<img width="823" height="472.5" alt="2ef605d9a3e6bce4afe56dcc21918b8d" src="https://github.com/user-attachments/assets/5efbad53-21a2-443c-8fa9-676705cf31b5" />
-
-Elasticsearch should now be fully installed!
-
-Note: Just remember, Elasticsearch is HTTPs; Kibana is HTTP.
+  Note: Just remember, Elasticsearch is HTTPs; Kibana is HTTP.
 
 ### Kibana Installation
 1. Install Kibana
@@ -99,34 +97,34 @@ sudo apt-get update && sudo apt-get install kibana
 ```
 
 2. Integrate Kibana with Elasticsearch by creating and provisioning an Enrollment Token.
-2a. Navigate to /usr/share/kibana and use this command in your terminal:
-```bash
-bin/elasticsearch-create-enrollment-token -s kibana
-```
-This will create an enrollment token which you can use to connect to and incorporate Kibana's visualisation interface for Elasticsearch's backend
+  2a. Navigate to /usr/share/kibana and use this command in your terminal:
+  ```bash
+  bin/elasticsearch-create-enrollment-token -s kibana
+  ```
+  This will create an enrollment token which you can use to connect to and incorporate Kibana's visualisation interface for Elasticsearch's backend
 
-2b. Configure Kibana to start automatically upon boot
-```bash
-sudo /bin/systemctl daemon-reload
-sudo /bin/systemctl enable kibana.service
-```
-
-2c. To start Kibana, use this command:
-```bash
-sudo systemctl start kibana.service
-```
+  2b. Configure Kibana to start automatically upon boot
+  ```bash
+  sudo /bin/systemctl daemon-reload
+  sudo /bin/systemctl enable kibana.service
+  ```
+  
+  2c. To start Kibana, use this command:
+  ```bash
+  sudo systemctl start kibana.service
+  ```
 To stop Kibana, simply replace 'start' with 'stop'.
 
-2d. Configure Kibana with Elasticsearch. Follow the link that appears in the status logs to start integrating Kibana with Elasticsearch.
-```bash
-sudo systemctl status kibana.service
-```
+  2d. Configure Kibana with Elasticsearch. Follow the link that appears in the status logs to start integrating Kibana with Elasticsearch.
+  ```bash
+  sudo systemctl status kibana.service
+  ```
 
-2e. Copy paste the enrollment token you generated before into the web interface and click Configure.
-
-2f. If a verification is needed, use the one provided for the Kibana status command
-
-2g. Upon arriving at the "Welcome to Elastic" page, configure username as elastic and paste in the password that was generated when setting up Elasticsearch. Login
+  2e. Copy paste the enrollment token you generated before into the web interface and click Configure.
+  
+  2f. If a verification is needed, use the one provided for the Kibana status command
+  
+  2g. Upon arriving at the "Welcome to Elastic" page, configure username as elastic and paste in the password that was generated when setting up Elasticsearch. Login
 
 ## Lessons Learned
 
