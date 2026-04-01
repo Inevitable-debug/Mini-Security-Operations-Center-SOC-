@@ -1,6 +1,6 @@
 # 🛡️ Mini Security Operations Center Project 🛡️
 
-##Table of Contents
+## Table of Contents
 1. [Project Summary](#summary)
 2. [Architecture Diagram](#architecture)
 3. [Requirements](#requirements)
@@ -44,19 +44,27 @@ Elastic Security is built into Kibana and can create detection rules. In this la
 
 1. Install the Elastic Public key. This ensures that we can verify the digital signature of Elastic packages using the public key.
    
-`wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg`
+```bash
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg`
+```
 
-3. Download the apt-transport-https. This allows apt to communicate over HTTPs, not just HTTP. This is important, as Elasticsearch is hosted over HTTP, not HTTPs.
+2. Download the apt-transport-https. This allows apt to communicate over HTTPs, not just HTTP. This is important, as Elasticsearch is hosted over HTTP, not HTTPs.
 
-`sudo apt-get install apt-transport-https`
+```bash
+sudo apt-get install apt-transport-https
+```
 
 2a. Selects the key we will use to verify the Debian package and where the repository can be found (link provided)
 
-`echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/9.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-9.x.list`
+```bash
+echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/9.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-9.x.list
+```
 
 3. Install the Elastic Package itself. Enter this command to both update the existing packages Ubuntu can access, and to install the Debian package.
 
-`sudo apt-get update && sudo apt-get install elasticsearch`
+```bash
+sudo apt-get update && sudo apt-get install elasticsearch
+```
 
 4. Navigate to /etc/elasticsearch to set some parameters.
 
@@ -68,6 +76,7 @@ Elastic Security is built into Kibana and can create detection rules. In this la
 4c. Enable `xpack.security.enabled` to `true` and set `xpack.security.enrollment.enabled` to true
 
 5. Start the Elasticsearch service
+
 5a. Check whether the Elasticsearch status is inactive / disabled. It should be inactive, and we shall enable it.
 `systemctl status elasticsearch`
 
@@ -82,6 +91,40 @@ Elasticsearch should now be fully installed!
 Note: Just remember, Elasticsearch is HTTPs; Kibana is HTTP.
 
 ### Kibana Installation
+1. Install Kibana
+```bash
+sudo apt-get update && sudo apt-get install kibana
+```
+
+2. Integrate Kibana with Elasticsearch by creating and provisioning an Enrollment Token.
+2a. Navigate to /usr/share/kibana and use this command in your terminal:
+```bash
+bin/elasticsearch-create-enrollment-token -s kibana
+```
+This will create an enrollment token which you can use to connect to and incorporate Kibana's visualisation interface for Elasticsearch's backend
+
+2b. Configure Kibana to start automatically upon boot
+```bash
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable kibana.service
+```
+
+2c. To start Kibana, use this command:
+```bash
+sudo systemctl start kibana.service
+```
+To stop Kibana, simply replace 'start' with 'stop'.
+
+2d. Configure Kibana with Elasticsearch. Follow the link that appears in the status logs to start integrating Kibana with Elasticsearch.
+```bash
+sudo systemctl status kibana.service
+```
+
+2e. Copy paste the enrollment token you generated before into the web interface and click Configure.
+
+2f. If a verification is needed, use the one provided for the Kibana status command
+
+2g. Upon arriving at the "Welcome to Elastic" page, configure username as elastic and paste in the password that was generated when setting up Elasticsearch. Login
 
 ## Lessons Learned
 
