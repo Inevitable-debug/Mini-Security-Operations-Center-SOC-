@@ -19,8 +19,8 @@ A fully virtualised Security Operations Center (SOC) intended to simulate a real
 
 ## 🔧 Architecture Diagram
 ### Data Flow
-<img width="650" height="120" alt="Copy of Untitled Diagram drawio(3)(2)" src="https://github.com/user-attachments/assets/e27b0c33-ebb2-41c0-bcf6-f5ae34ed1d2b" />
 
+![thing](https://github.com/user-attachments/assets/ee0cc361-0eca-421d-859b-6059cf3a783b)
 
 ## Prerequisites
 | Requirement                  | Description                                      |
