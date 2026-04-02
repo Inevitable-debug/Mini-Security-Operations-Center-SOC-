@@ -165,22 +165,22 @@ Invoke-AtomicTest T1059.001 --Cleanup
 
 4. Select "Add Elastic Rules" on this screen
    
-<img width="1854" height="958" alt="image" src="https://github.com/user-attachments/assets/87058fa2-bf94-4a54-943c-1c56ea9f1001" />
+<img width="536.25" height="374.4" alt="image" src="https://github.com/user-attachments/assets/87058fa2-bf94-4a54-943c-1c56ea9f1001" />
 
 5. Choose from any of the existing rules. In this case, I chose *Potential Invoke-Mimikatz PowerShell Script*. Select the rule, then *Install 1 selected rule(s)*.
    
-<img width="1856" height="965" alt="0fafa37566931199e6a6cb5ffa69740f" src="https://github.com/user-attachments/assets/5b8d5655-2c97-4399-b5af-80b79a565629" />
+<img width="536.25" height="374.4" alt="0fafa37566931199e6a6cb5ffa69740f" src="https://github.com/user-attachments/assets/5b8d5655-2c97-4399-b5af-80b79a565629" />
 
 I also suggest installing *Potential Process Injection via Powershell*.
 
 6. Navigate back to the Rules dashboard and enable your newly installed rule.
-<img width="1852" height="947" alt="image" src="https://github.com/user-attachments/assets/291caa89-eb7f-405c-bc0d-20f3440dfdb6" />
+<img width="536.25" height="374.4" alt="image" src="https://github.com/user-attachments/assets/291caa89-eb7f-405c-bc0d-20f3440dfdb6" />
 
 7. This should now be installed! For testing, launch an Atomic Red Team attack. A command is provided above during the Atomic Red Team installation section.
 
 8. Navigate to Alerts under the Security tab. 6 alerts were detected for the Mimikatz exploit.
 
-<img width="1853" height="943" alt="fbd67395300defd2013f3b66dff12218" src="https://github.com/user-attachments/assets/0bf51176-d4ac-4888-8eb7-c49f7008b23d" />
+<img width="536.25" height="374.4" alt="fbd67395300defd2013f3b66dff12218" src="https://github.com/user-attachments/assets/0bf51176-d4ac-4888-8eb7-c49f7008b23d" />
 
 
 ## Lessons Learned
