@@ -12,18 +12,14 @@
 
 ---
 
-## Project Summary
-A fully virtualised Security Operations Center (SOC) intended to simulate a real world enterprise Cybersecurity environment where Security Professionals can follow SOC Methodologies, such as performing log aggregation, risk scoring, threat analysis and triage. In this project, a Windows and Ubuntu VM will be used. Elasticsearch and Kibana are installed on the Ubuntu VM. Sysmon and Winlogbeat are installed on the Windows VM.
-
-Elasticsearch is a tool that can receive logging data and convert it into a database. Kibana is a data analytics and visualisation software that can represent this data from Elasticsearch. This data can be queried using the Kibana Query Language (KQL) to parse out crucial information for threat hunting and can be analysed by Security Professionals. Sysmon expands regular log collection capabilities to include process creation, file changes, network connections and more. Winlogbeat feeds this log collection data enhanced by Sysmon into the Ubuntu VM, which is handled by Elasticsearch and is represented in Kibana.
-
-Elastic Security is built into Kibana and can create detection rules. In this lab, detection rules have been configured to detect any suspicious system behaviour, such as data exfiltration, process injection and registry tampering.
+## ℹ️ Introduction
+A fully virtualised Security Operations Center (SOC) intended to simulate a real world enterprise Cybersecurity environment where Security Professionals can follow SOC Methodologies, such as performing log aggregation, risk scoring, threat analysis and triage. Log aggregation is performed with Elasticsearch and Kibana is the visualisation tool to view data analytics, as well as logs. Sysmon enhances log collection capabilities from a Windows VM which ships logs to Ubuntu through Winlogbeat. Elastic Security is built into Kibana and can create detection rules. In this lab, detection rules have been configured to detect any suspicious system behaviour, such as data exfiltration, process injection and registry tampering.
 
 ---
 
-## Architecture Diagram
+## 🔧 Architecture Diagram
 ### Data Flow
-<img width="836" height="120" alt="Copy of Untitled Diagram drawio(3)" src="https://github.com/user-attachments/assets/794db82c-dfc1-4131-b8c8-a8e5519f3514" />
+<img width="650" height="120" alt="Copy of Untitled Diagram drawio(3)(2)" src="https://github.com/user-attachments/assets/e27b0c33-ebb2-41c0-bcf6-f5ae34ed1d2b" />
 
 
 ## Prerequisites
