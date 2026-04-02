@@ -115,9 +115,6 @@ To stop Kibana, simply replace 'start' with 'stop'.
   
 9. Upon arriving at the "Welcome to Elastic" page, configure username as elastic and paste in the password that was generated when setting up Elasticsearch. Login
 
-## Detection Rules Configuration
-1. 
-
 ## Deployment Instructions on Windows
 ### Sysmon Installation
 1. Download [Sysmon](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon)
@@ -157,6 +154,33 @@ Invoke-AtomicTest T1059.001
 ```powershell
 Invoke-AtomicTest T1059.001 --Cleanup
 ```
+
+## Detection Rules Configuration
+1. Access the home page for Kibana: http://your-vm-ip-address:5601/app/home/
+2. Click on the menu in the top left corner <img width="60" height="47" alt="c57f1a85113a1a233eaf1573f2bc4a2a" src="https://github.com/user-attachments/assets/fe4bbda3-cca4-4ed7-9ac2-8060008e8d7d" /> Scroll down until you see the Security tab, then click Rules.
+
+<img width="536.25" height="374.4"  alt="image" src="https://github.com/user-attachments/assets/e7ad37a2-b8b4-43ef-931e-d70255b66e0a" />
+
+3. From the Management tab, select "Detection Rules (SIEM)".
+
+4. Select "Add Elastic Rules" on this screen
+   
+<img width="1854" height="958" alt="image" src="https://github.com/user-attachments/assets/87058fa2-bf94-4a54-943c-1c56ea9f1001" />
+
+5. Choose from any of the existing rules. In this case, I chose *Potential Invoke-Mimikatz PowerShell Script*. Select the rule, then *Install 1 selected rule(s)*.
+   
+<img width="1856" height="965" alt="0fafa37566931199e6a6cb5ffa69740f" src="https://github.com/user-attachments/assets/5b8d5655-2c97-4399-b5af-80b79a565629" />
+
+I also suggest installing *Potential Process Injection via Powershell*.
+
+6. Navigate back to the Rules dashboard and enable your newly installed rule.
+<img width="1852" height="947" alt="image" src="https://github.com/user-attachments/assets/291caa89-eb7f-405c-bc0d-20f3440dfdb6" />
+
+7. This should now be installed! For testing, launch an Atomic Red Team attack. A command is provided above during the Atomic Red Team installation section.
+
+8. Navigate to Alerts under the Security tab. 6 alerts were detected for the Mimikatz exploit.
+
+<img width="1853" height="943" alt="fbd67395300defd2013f3b66dff12218" src="https://github.com/user-attachments/assets/0bf51176-d4ac-4888-8eb7-c49f7008b23d" />
 
 
 ## Lessons Learned
