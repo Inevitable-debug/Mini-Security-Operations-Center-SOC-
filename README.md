@@ -17,7 +17,7 @@ A fully virtualised Security Operations Center (SOC) intended to simulate a real
 
 Elasticsearch is a tool that can receive logging data and convert it into a database. Kibana is a data analytics and visualisation software that can represent this data from Elasticsearch. This data can be queried using the Kibana Query Language (KQL) to parse out crucial information for threat hunting and can be analysed by Security Professionals. Sysmon expands regular log collection capabilities to include process creation, file changes, network connections and more. Winlogbeat feeds this log collection data enhanced by Sysmon into the Ubuntu VM, which is handled by Elasticsearch and is represented in Kibana.
 
-Elastic Security is built into Kibana and can create detection rules. In this lab, detection rules have been configured to detect any suspicious system behaviour, such as data exfiltration, process injections and registry tampering.
+Elastic Security is built into Kibana and can create detection rules. In this lab, detection rules have been configured to detect any suspicious system behaviour, such as data exfiltration, process injection and registry tampering.
 
 ---
 
@@ -167,7 +167,7 @@ Invoke-AtomicTest T1059.001 --Cleanup
    
 <img width="536.25" height="374.4" alt="image" src="https://github.com/user-attachments/assets/87058fa2-bf94-4a54-943c-1c56ea9f1001" />
 
-5. Choose from any of the existing rules. In this case, I chose *Potential Invoke-Mimikatz PowerShell Script*. Select the rule, then *Install 1 selected rule(s)*.
+5. Choose from any of the existing rules. In this case, I chose *Potential Invoke-Mimikatz PowerShell Script*, which detects whether the Mimikatz Powershell script is possibly executed. Select the rule, then *Install 1 selected rule(s)*.
    
 <img width="536.25" height="374.4" alt="0fafa37566931199e6a6cb5ffa69740f" src="https://github.com/user-attachments/assets/5b8d5655-2c97-4399-b5af-80b79a565629" />
 
