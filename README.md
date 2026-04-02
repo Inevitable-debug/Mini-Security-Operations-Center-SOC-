@@ -157,7 +157,7 @@ Invoke-AtomicTest T1059.001 --Cleanup
 
 ## Detection Rules Configuration
 1. Access the home page for Kibana: http://your-vm-ip-address:5601/app/home/
-2. Click on the menu in the top left corner <img width="60" height="47" alt="c57f1a85113a1a233eaf1573f2bc4a2a" src="https://github.com/user-attachments/assets/fe4bbda3-cca4-4ed7-9ac2-8060008e8d7d" /> Scroll down until you see the Security tab, then click Rules.
+2. Click on the menu in the top left corner <img width="20" height="15" alt="c57f1a85113a1a233eaf1573f2bc4a2a" src="https://github.com/user-attachments/assets/fe4bbda3-cca4-4ed7-9ac2-8060008e8d7d" /> Scroll down until you see the Security tab, then click Rules.
 
 <img width="536.25" height="374.4"  alt="image" src="https://github.com/user-attachments/assets/e7ad37a2-b8b4-43ef-931e-d70255b66e0a" />
 
