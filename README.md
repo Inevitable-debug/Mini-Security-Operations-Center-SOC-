@@ -22,6 +22,9 @@ Elastic Security is built into Kibana and can create detection rules. In this la
 ---
 
 ## Architecture Diagram
+### Data Flow
+<img width="836" height="120" alt="Copy of Untitled Diagram drawio(3)" src="https://github.com/user-attachments/assets/794db82c-dfc1-4131-b8c8-a8e5519f3514" />
+
 
 ## Prerequisites
 | Requirement                  | Description                                      |
