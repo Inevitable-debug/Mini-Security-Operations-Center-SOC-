@@ -22,7 +22,7 @@ A fully virtualised Security Operations Center (SOC) intended to simulate a real
 
 ![thing](https://github.com/user-attachments/assets/ee0cc361-0eca-421d-859b-6059cf3a783b)
 
-## Prerequisites
+## </> Prerequisites
 | Requirement                  | Description                                      |
 |------------------------------|--------------------------------------------------|
 | **RAM**                      | At least **12 GB** spare (to run the VMs)        |
@@ -31,7 +31,7 @@ A fully virtualised Security Operations Center (SOC) intended to simulate a real
 | **Virtual Disk Images**      | Windows (8/10/11) ISO and a Ubuntu (Debian) file |
 
 
-## Deployment Instructions on Ubuntu
+## 🚀 Deployment Instructions on Ubuntu
 ### Elasticsearch Installation
 
 1. Install the Elastic Public key. This ensures that we can verify the digital signature of Elastic packages using the public key.
@@ -182,18 +182,18 @@ I also suggest installing *Potential Process Injection via Powershell*.
 <img width="536.25" height="374.4" alt="fbd67395300defd2013f3b66dff12218" src="https://github.com/user-attachments/assets/0bf51176-d4ac-4888-8eb7-c49f7008b23d" />
 
 
-## Lessons Learned
+## 📖 Lessons Learned
 - Troubleshooting certificate authority issues
 - Ensuring I use a Bridged Adapter for both VMs to ensure they can communicate with each other
 - Troubleshooting Elasticsearch, Kibana and Winlogbeat's configurations to ensure the communication loop flows
 - Learning how to read documentation deeper
 
-## Limitations
+## 🚧 Limitations
 - May not scale to an enterprise environment as of yet due to limited system resources
 - Elastic passwords are not encrypted or secure; if compromised on the Windows VM, an attacker can gain access
 - Kibana itself is not encrypted; the visualisation software could expose data to any eavesdropper
 
-## Future Improvements
+## 🔎 Future Improvements
 - Agentic Claude Integration that involves an agent compiling an analysis about how the alerts occurred, whether it's a false positive, and how to fine tune defenses further
 - Compile research report about Agentic integration and compare it to how a real Security Analyst investigates incidents
 - Encrypt passwords to harden system security for passing logs from the Windows VM to Elastic
