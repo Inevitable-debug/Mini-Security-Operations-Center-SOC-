@@ -18,9 +18,19 @@ A fully virtualised Security Operations Center (SOC) intended to simulate a real
 ---
 
 ## 🔧 Architecture Diagram
+### Component Diagram
+![Untitled Diagram(3)](https://github.com/user-attachments/assets/93d5650c-6aa2-4781-ba75-303c9be8071b)
+— Windows Event Logs generate natively and are routed to Elasticsearch in the Ubuntu VM via Winlogbeat<br>
+— Atomic Red Team triggers log generation and Sysmon enhances it<br>
+— Elastic Security is inbuilt into Kibana and configures detection rules for the analytics interface<br>
+
 ### Data Flow
 
 ![thing](https://github.com/user-attachments/assets/ee0cc361-0eca-421d-859b-6059cf3a783b)
+
+— Sysmon pads existing Windows logs with deeper system log retrieval<br>
+— Logs are forwarded through Winlogbeat to Elasticsearch<br>
+— Kibana is the visualisation software that represents Elasticsearch's data<br>
 
 ## </> Prerequisites
 | Requirement                  | Description                                      |
@@ -170,7 +180,8 @@ Invoke-AtomicTest T1059.001 --Cleanup
    
 <img width="536.25" height="374.4" alt="0fafa37566931199e6a6cb5ffa69740f" src="https://github.com/user-attachments/assets/5b8d5655-2c97-4399-b5af-80b79a565629" />
 
-I also suggest installing *Potential Process Injection via Powershell*.
+> [!NOTE]
+> I also suggest installing *Potential Process Injection via Powershell*.
 
 6. Navigate back to the Rules dashboard and enable your newly installed rule.
 <img width="536.25" height="374.4" alt="image" src="https://github.com/user-attachments/assets/291caa89-eb7f-405c-bc0d-20f3440dfdb6" />
