@@ -184,7 +184,17 @@ I also suggest installing *Potential Process Injection via Powershell*.
 
 
 ## Lessons Learned
+- Troubleshooting certificate authority issues
+- Ensuring I use a Bridged Adapter for both VMs to ensure they can communicate with each other
+- Troubleshooting Elasticsearch, Kibana and Winlogbeat's configurations to ensure the communication loop flows
+- Learning how to read documentation deeper
 
 ## Limitations
+- May not scale to an enterprise environment as of yet due to limited system resources
+- Elastic passwords are not encrypted or secure; if compromised on the Windows VM, an attacker can gain access
+- Kibana itself is not encrypted; the visualisation software could expose data to any eavesdropper
 
 ## Future Improvements
+- Agentic Claude Integration that involves an agent compiling an analysis about how the alerts occurred, whether it's a false positive, and how to fine tune defenses further
+- Compile research report about Agentic integration and compare it to how a real Security Analyst investigates incidents
+- Encrypt passwords to harden system security for passing logs from the Windows VM to Elastic
