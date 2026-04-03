@@ -1,3 +1,4 @@
+[![Spelling](https://github.com/banesullivan/README/actions/workflows/spelling.yml/badge.svg)](https://github.com/banesullivan/README/actions/workflows/spelling.yml)
 # 🛡️ Mini Security Operations Center Project 🛡️
 
 ## Table of Contents
